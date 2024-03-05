@@ -3,7 +3,7 @@ timeTag = document.querySelector(".time b"),
 flipsTag = document.querySelector(".flips b"),
 refreshBtn = document.querySelector(".details button");
 
-let maxTime = 20;
+let maxTime = 50;
 let timeLeft = maxTime;
 let flips = 0;
 let matchedCard = 0;
@@ -73,15 +73,21 @@ function shuffleCard() {
     flipsTag.innerText = flips;
     disableDeck = isPlaying = false;
 
-    let arr = [1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6];
+    let arr = [
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgRj7s7YquROtHbuQbJKMJT8nqjBNG56N7dg&s",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0ATREn2UAS_7FZtom8xTk6Fx9BEnSfNcFmg&s",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTstC_MtRUy60f9PCvajshOVma0Xs0PoIaBqQ&s",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRTBYLGNz9g_j1Wie1PCgMbBbm5NUSxyFas4HEgA127jEDvGVy84VhBxOxOj2gPeQ1gio&usqp=CAU",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBTZmqyckICtngbyfL0EyTzRLEI27lcUVSj-bqzHAcHB-Q21mkg1RlcztHVVUOLklpl-E&usqp=CAU",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4I_RtB-_9-U6g5bIcPyQmVFtRwED1AGehKB0th0deyGiUDdi3eBJ4dkraxhgNzQWviaE&usqp=CAU"
+    ];
+    arr = arr.concat(arr); // Duplicate the array to have pairs
     arr.sort(() => Math.random() > 0.5 ? 1 : -1);
 
     cards.forEach((card, index) => {
         card.classList.remove("flip");
         let imgTag = card.querySelector(".back-view img");
-        setTimeout(() => {
-            imgTag.src = `images/img-${arr[index]}.png`;
-        }, 500);
+        imgTag.src = arr[index];
         card.addEventListener("click", flipCard);
     });
 }
