@@ -9,6 +9,11 @@
 p{
   font-size: 20px;
 }
+.Qimg{
+  height: 80px;
+  width: 180px;
+}
+
 body{
   display: flex;
   align-items: center;
@@ -32,8 +37,8 @@ body{
   justify-content: center;
 }
 .cards{
-  height: 350px;
-  width: 350px;
+  height: 600px;
+  width: 600px;
   flex-wrap: wrap;
   justify-content: space-between;
 }
@@ -48,6 +53,7 @@ body{
 .card.shake{
   animation: shake 0.35s ease-in-out;
 }
+
 @keyframes shake {
   0%, 100%{
     transform: translateX(0);
@@ -78,7 +84,7 @@ body{
   box-shadow: 0 3px 10px rgba(0,0,0,0.1);
 }
 .card .front-view img{
-  max-width: 17px;
+  max-width: 50px;
 }
 .card .back-view{
   transform: rotateY(-180deg);
